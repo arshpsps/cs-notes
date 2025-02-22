@@ -1,5 +1,30 @@
 ...
 
+### Syscalls - `write` and `read`
+
+```nasm
+_start:
+    mov     rax, 0         ; first arg for syscall, 0 = read
+    mov     rdi, 0         ; second arg for syscall, first for read, 0 = stdin
+    mov     rsi, in        ; third arg for syscall, second for read, in = .bss resb buffer address, [in] for contents
+    mov     rdx, 64        ; fourth arg for syscall, third for read, 64 = size of buffer, max bytes to read
+    syscall                ; perform syscall, stored no of bytes read in rax
+
+    mov     rdx, rax       ; mov no of bytes read from rax to rdx, rdx = len of bytes to write
+    mov     rax, 1         ; 1 = write() syscall
+    mov     rdi, 1         ; 1 = stdout
+                           ; did not mov rsi, in cuz rsi already has that address from the previous mov
+    mov     rdx, 64        ; len of bytes to write
+    syscall
+
+    mov     rax, 60        ; 60 = exit() syscall
+    mov     rdi, 0         ; rdi has the exit code in linux systems, we clear rdi to 0 to indicate successful exit
+    syscall
+
+section .bss
+in: resb 64
+```
+
 ### Addressing - Functions and Stack
 
 ```c
