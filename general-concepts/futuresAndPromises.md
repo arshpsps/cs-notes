@@ -1,10 +1,12 @@
+both are the same, dont think too much into the word used
+
+---
+
 THIS IS A LOAD OF BULLSHIT
 there's way too much conflicting information of `future` and `promise`
 refer to [scala docs](https://docs.scala-lang.org/overviews/core/futures.html#promises)
 
 ---
-
-#### i decide to believe in the following
 
 `future` is a container for a value that will be available, kind of like a monad whereas a `promise` is like an interface used to get the results out of a `future`.
 
