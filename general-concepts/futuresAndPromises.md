@@ -1,4 +1,4 @@
-both are the same, dont think too much into the word used
+NEVERMIND, futures "poll()" whereas promises work on event callbacks
 
 ---
 
